@@ -1,0 +1,10 @@
+/**
+ * Created by wth on 2016/5/11.
+ */
+public class Test1 {
+    public static void main(String[] args)
+    {
+        int a=5;
+        System.out.print(a);
+    }
+}

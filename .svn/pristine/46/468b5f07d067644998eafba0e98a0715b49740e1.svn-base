@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.List;
+
+/**
+ * Created by wth on 2016/5/11.
+ */
+public class Test1 {
+    public static void main(String[] args)
+    {
+//        int a=5;
+//        System.out.print(a);
+
+        List<Integer> list = new ArrayList<>();
+        for(int i = 1 ;i<=6;i++)
+        {
+            list.add(i);
+        }
+        list.add(1);
+//        for(int i=0;i<list.size();i++)
+//        {
+//            System.out.print(list.get(i)+" ");
+//        }
+        for(Integer a : list)
+        {
+            if(a>1)
+            {
+                list.remove(a);
+            }
+        }
+        for(int i=0;i<list.size();i++)
+        {
+            System.out.print(list.get(i)+" ");
+        }
+    }
+
+}

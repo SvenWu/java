@@ -1,0 +1,41 @@
+package NiuKe;
+
+/**
+ * Created by wth on 2017/3/25.
+ */
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Main sol = new Main();
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int count = sc.nextInt();
+        int[] num = new int[n];
+        for(int i =0; i<n; i++)
+        {
+            num[i] = sc.nextInt();
+        }
+        sol.ring(n,count,num);
+        for(int i =0;i<count; i++)
+        {
+            System.out.print(num[i]+" ");
+        }
+    }
+
+    public void ring(int n, int count , int[] num){
+
+        for(int j =0;j<count;j++)
+        {
+            int a = num[0];
+            for(int i =0; i<n; i++)
+            {
+                if(i+1 == n){
+                    num[i] = num[i] + a;
+                }
+                else num[i] = num[i]+num[i+1];
+                if(num[i] >=100) num[i] %= num[i];
+            }
+        }
+    }
+
+}
