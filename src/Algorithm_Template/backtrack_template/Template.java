@@ -1,4 +1,4 @@
-package backtrack_template;
+package Algorithm_Template.backtrack_template;
 
 import java.util.ArrayList;
 import java.util.Arrays;
