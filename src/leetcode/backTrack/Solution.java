@@ -18,12 +18,16 @@ public class Solution {
     public boolean isPalin(String s,int l,int r){
         while(l<r)
         {
-            if(s.charAt(l++) != s.charAt(r--)) return false;
+            if(s.charAt(l++) != s.charAt(r--)) {
+                return false;
+            }
         }
         return true;
     }
     public void backTrace(List<List<String>> res, List<String> list, int pos,String s){
-        if(pos == s.length())   res.add(new ArrayList<String>(list));  /**很重要必须new一个实力  否则list会随着改变   引用传递*/
+        if(pos == s.length()) {
+            res.add(new ArrayList<String>(list));
+        }  /**很重要必须new一个实力  否则list会随着改变   引用传递*/
         else{
             for(int i=pos; i<s.length(); i++)
             {
@@ -43,7 +47,9 @@ public class Solution {
     public List<Integer> grayCode(int n) {
         List<Integer> res = new ArrayList<>();
         res.add(0);
-        if(n ==0) return res;
+        if(n ==0) {
+            return res;
+        }
         int len = (int)Math.pow(2,n);
         backTrack(res,n,0,len);
         return res;
@@ -52,17 +58,24 @@ public class Solution {
         int count = 0;
         for(int i=0; i<n; i++)
         {
-            if((num1 ^ (num2 >>i)) == 0) count++;
+            if((num1 ^ (num2 >>i)) == 0) {
+                count++;
+            }
         }
         return count == 1?true:false;
     }
     public void backTrack(List<Integer> res, int n, int start,int len){
-        if(res.size() == len) return;
+        if(res.size() == len) {
+            return;
+        }
         for(int i = 0; i<len; i++)
         {
             if(isGrayCode(start,i,n)) {
-                if(!res.contains(i)) res.add(i);
-                else continue;
+                if(!res.contains(i)) {
+                    res.add(i);
+                } else {
+                    continue;
+                }
             }
             backTrack(res,n,i+1,len);
             res.remove(res.size()-1);
@@ -119,7 +132,9 @@ public class Solution {
         }
         for(int i =0; i<nums.length; i++)
         {
-            if(visited[i]) continue;
+            if(visited[i]) {
+                continue;
+            }
             list.add(nums[i]);
             visited[i] = true;
             backTrack(res,list,nums,visited);
@@ -143,14 +158,18 @@ public class Solution {
         }
         for(int i = pos;i<wordDict.size();i++)
         {
-            if(sum+wordDict.get(i).length() > s.length())  continue;
+            if(sum+wordDict.get(i).length() > s.length()) {
+                continue;
+            }
             if(s.substring(sum,sum+(wordDict.get(i).length())).equals(wordDict.get(i))){
                 str += wordDict.get(i)+" ";
                 sum += wordDict.get(i).length();
             }
 
             backTrack(res,wordDict,str,s,i+1,sum);
-            if(str.length()-wordDict.get(i).length()-1<=0) str = "";
+            if(str.length()-wordDict.get(i).length()-1<=0) {
+                str = "";
+            }
             str = str.substring(0,str.length()-wordDict.get(i).length()-1);
             sum -= wordDict.get(i).length();
         }
@@ -168,8 +187,9 @@ public class Solution {
             int x = Character.getNumericValue(digits.charAt(i));
             while(ans.peek().length()==i){
                 String t = ans.remove();
-                for(char s : mapping[x].toCharArray())
+                for(char s : mapping[x].toCharArray()) {
                     ans.add(t+s);
+                }
             }
         }
         return ans;

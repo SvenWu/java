@@ -25,7 +25,9 @@ public class UnionFind {
     }
 
     public int find(int p) {
-        while(id[p] != p) p = id[p];
+        while(id[p] != p) {
+            p = id[p];
+        }
         return id[p];
     }
 
@@ -35,7 +37,9 @@ public class UnionFind {
     public void uion(int p, int q) {
         int pRoot = find(p);
         int qRoot = find(q);
-        if(pRoot == qRoot) return;
+        if(pRoot == qRoot) {
+            return;
+        }
         id[pRoot] = qRoot;
         count--;
     }

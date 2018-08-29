@@ -15,8 +15,12 @@ public class Solution {
             {
                 remainder = num%i;
                 num /= i;
-                if(remainder != 1) break;
-                if(num<i && num == 1)  return i+"";
+                if(remainder != 1) {
+                    break;
+                }
+                if(num<i && num == 1) {
+                    return i+"";
+                }
             }
         }
         return String.valueOf(len-1);
@@ -27,14 +31,19 @@ public class Solution {
  * */
     public int findMin(int[] nums) {
         int len = nums.length;
-        if(nums == null || len == 0) return 0;
+        if(nums == null || len == 0) {
+            return 0;
+        }
         int l = 0 , r = len-1;
         int mid =0;
         while(l<=r)
         {
             mid = l + (r-l)/2;
-            if(nums[mid] >= nums[len-1]) l = mid+1;
-            else r = mid -1;
+            if(nums[mid] >= nums[len-1]) {
+                l = mid+1;
+            } else {
+                r = mid -1;
+            }
         }
         return nums[mid];
     }

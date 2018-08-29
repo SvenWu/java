@@ -40,8 +40,9 @@ public class Main {
                             int row = cell[0] + d[0];
                             int col = cell[1] + d[1];
                             if(row<0 || row >=m || col<0 || col>=n || flag[row][col]
-                                    || arr[row][col] == 0) continue;
-                            else {
+                                    || arr[row][col] == 0) {
+                                continue;
+                            } else {
                                 queue.offer(new int[]{row,col});
                                 flag[row][col] = true;
                             }
@@ -58,12 +59,17 @@ public class Main {
         int len = array.length;
         int count = 0;
         for (int i = 0; i < len; i++) {
-            if ((array[i] & 1) == 1) count++;
+            if ((array[i] & 1) == 1) {
+                count++;
+            }
         }
         int[] copy = new int[len];
         for (int i = 0, l = 0, r = count; i < len; i++) {
-            if ((array[i] & 1) == 1) copy[l++] = array[i];
-            else copy[r++] = array[i];
+            if ((array[i] & 1) == 1) {
+                copy[l++] = array[i];
+            } else {
+                copy[r++] = array[i];
+            }
         }
         for (int a : copy) {
             System.out.println(a);

@@ -17,8 +17,11 @@ public class Main {
         Queue<int[]> queue = new LinkedList<>();
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if(matrix.get(i).get(j) == 0) queue.offer(new int[]{i,j});
-                else matrix.get(i).set(j,Integer.MAX_VALUE);
+                if(matrix.get(i).get(j) == 0) {
+                    queue.offer(new int[]{i,j});
+                } else {
+                    matrix.get(i).set(j,Integer.MAX_VALUE);
+                }
             }
         }
         int[][] dirs = new int[][]{{1,0},{-1,0},{0,-1},{0,1}}; //ÉÏÏÂ×óÓÒ²Ù×÷Ë³Ðò
@@ -28,7 +31,9 @@ public class Main {
                 int row = cell[0]+d[0];
                 int col = cell[1]+d[1];
                 if(row<0 || row>=m || col<0 || col>=n ||
-                        matrix.get(row).get(col) <= matrix.get(cell[0]).get(cell[1]) +1) continue;
+                        matrix.get(row).get(col) <= matrix.get(cell[0]).get(cell[1]) +1) {
+                    continue;
+                }
                 matrix.get(row).set(col,matrix.get(cell[0]).get(cell[1]) +1);
                 queue.offer(new int[]{row,col});
             }

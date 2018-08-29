@@ -11,7 +11,9 @@ public class Solution {
      * 227. Basic Calculator II
      */
     public int calculate(String s) {
-        if (s.length() == 0) return 0;
+        if (s.length() == 0) {
+            return 0;
+        }
         Deque<Integer> stack = new ArrayDeque<>();
         StringBuilder sb = new StringBuilder(s);
         String str = "+-*/";
@@ -20,8 +22,11 @@ public class Solution {
         int num;
         for (; i < sb.length(); i++) {
             if (str.contains(sb.charAt(i) + "") || i == sb.length() - 1) {
-                if(i == sb.length() - 1)  num = Integer.parseInt(sb.substring(0,sb.length() ));
-                else  num = Integer.parseInt(sb.substring(0, i));
+                if(i == sb.length() - 1) {
+                    num = Integer.parseInt(sb.substring(0,sb.length() ));
+                } else {
+                    num = Integer.parseInt(sb.substring(0, i));
+                }
                 switch (sign) {
                     case '+':
                         stack.push(num);
@@ -79,11 +84,15 @@ public class Solution {
      * */
     public boolean checkInclusion(String s1, String s2) {
         int[] count = new int[128];
-        for(int i = 0; i < s1.length(); i++) count[s1.charAt(i)]--;
+        for(int i = 0; i < s1.length(); i++) {
+            count[s1.charAt(i)]--;
+        }
         for(int l = 0, r = 0; r < s2.length(); r++) {
-            if (++count[s2.charAt(r)] > 0)
+            if (++count[s2.charAt(r)] > 0) {
                 while(--count[s2.charAt(l++)] != 0) { /* do nothing */}
-            else if ((r - l + 1) == s1.length()) return true;
+            } else if ((r - l + 1) == s1.length()) {
+                return true;
+            }
         }
         return false;
     }

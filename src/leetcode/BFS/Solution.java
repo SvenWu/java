@@ -14,7 +14,9 @@ import java.util.Arrays;
 
 public class Solution {
     public static TreeNode buildTree(int[] inorder, int[] postorder) {
-        if(postorder.length == 0) return null;
+        if(postorder.length == 0) {
+            return null;
+        }
         TreeNode node = new TreeNode(postorder[postorder.length-1]);
         for(int i = 0; i < postorder.length; i++){
             if(postorder[i] == inorder[inorder.length-1]){

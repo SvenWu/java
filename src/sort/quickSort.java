@@ -19,12 +19,16 @@ public class quickSort {
         int temp;
         while(low < high)
         {
-            while(low<high && num[high] >= pivotkey) high--;
+            while(low<high && num[high] >= pivotkey) {
+                high--;
+            }
 //            temp = num[high];
 //            num[high] = num[low];
 //            num[low] = temp;
             num[low] = num[high];
-            while (low<high && num[low] <= pivotkey) low++;
+            while (low<high && num[low] <= pivotkey) {
+                low++;
+            }
 //            temp = num[low];
 //            num[low] = num[high];
 //            num[high] = temp;

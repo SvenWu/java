@@ -40,8 +40,11 @@ public class Solution {
         int l=words[0].length();
         for(String str:words)
         {
-            if(map.containsKey(str)) map.put(str,map.get(str)+1);
-            else map.put(str,1);
+            if(map.containsKey(str)) {
+                map.put(str,map.get(str)+1);
+            } else {
+                map.put(str,1);
+            }
         }
         //��ʼ����
         for(int i=0;i<=m-n*l;i++)    //ע����С�ڵ���
@@ -50,11 +53,14 @@ public class Solution {
             for(int j =0;j<n;j++)
             {
                 String str = s.substring(i+j*l,i+j*l+l);
-                if(!copy.containsKey(str)||copy.get(str)==0) break;
-                else {
+                if(!copy.containsKey(str)||copy.get(str)==0) {
+                    break;
+                } else {
                     copy.put(str,copy.get(str)-1);
                 }
-                if(j==n-1) list.add(i);
+                if(j==n-1) {
+                    list.add(i);
+                }
             }
         }
         return list;
@@ -74,7 +80,9 @@ public class Solution {
             String s1 = Arrays.toString(c);
             //String s1 = c.toString();
             System.out.println(s1);
-            if(!map.containsKey(s1)) map.put(s1,new ArrayList<String>());
+            if(!map.containsKey(s1)) {
+                map.put(s1,new ArrayList<String>());
+            }
             map.get(s1).add(s);
         }
         List<List<String>> l = new ArrayList<>();
@@ -137,14 +145,19 @@ public class Solution {
         }
         for(Character c : t.toCharArray())
         {
-            if(map.containsKey(c)) map.put(c,map.get(c)+1);
-            else return "";
+            if(map.containsKey(c)) {
+                map.put(c,map.get(c)+1);
+            } else {
+                return "";
+            }
         }
         int start = 0,end = 0,count = 0,min = Integer.MAX_VALUE,minstart=0;
         while(end < s.length())
         {
             char c = s.charAt(end);                    //end 指针
-            if(map.get(c)>0)  count++;
+            if(map.get(c)>0) {
+                count++;
+            }
             map.put(c,map.get(c)-1);
             end++;
 
@@ -193,19 +206,25 @@ public class Solution {
                                     col = colindex-j+1;
                                     colindex++;
                                 }
-                                else break outer;
+                                else {
+                                    break outer;
+                                }
                             }
                             colmin = Math.min(colmin,col);
                             row = rowindex-i+1;
                             rec = colmin * row;
                             maxrec=Math.max(rec,maxrec);
                             rowindex++;
-                            if(rowindex==m)  continue;
+                            if(rowindex==m) {
+                                continue;
+                            }
                             if(matrix[rowindex][j]=='1') {
                                 colindex=j;
 
                             }
-                            else break;
+                            else {
+                                break;
+                            }
                         }
                     }
             }
@@ -238,7 +257,9 @@ public class Solution {
         for(Map.Entry<Integer,Integer> entry : map.entrySet())
         {
             // if(map.entrySet().isEmpty())  return 0;
-            if(entry.getValue()==1)  sn= entry.getKey();
+            if(entry.getValue()==1) {
+                sn= entry.getKey();
+            }
         }
         return sn;
 
@@ -265,7 +286,9 @@ public class Solution {
         {
             map.put(n,0);
             n = Solution.happy(n);
-            if (n==1) return true;
+            if (n==1) {
+                return true;
+            }
         }
         return false;
     }
@@ -295,14 +318,18 @@ public class Solution {
         // Loop's ending condition is i * i < n instead of i < sqrt(n)
         // to avoid repeatedly calling an expensive function sqrt().
         for (int i = 2; i * i < n; i++) {
-            if (!isPrime[i]) continue;
+            if (!isPrime[i]) {
+                continue;
+            }
             for (int j = i * i; j < n; j += i) {
                 isPrime[j] = false;
             }
         }
         int count = 0;
         for (int i = 2; i < n; i++) {
-            if (isPrime[i]) count++;
+            if (isPrime[i]) {
+                count++;
+            }
         }
         return count;
     }
@@ -317,7 +344,9 @@ public class Solution {
         char[] c2 = t.toCharArray();
         Arrays.sort(c1);
         Arrays.sort(c2);
-       if(Arrays.toString(c1).equals(Arrays.toString(c2)))return true;
+       if(Arrays.toString(c1).equals(Arrays.toString(c2))) {
+           return true;
+       }
         return false;
     }
 
@@ -331,8 +360,11 @@ public class Solution {
         int res= 0;
         for(int i = citations.length-1;i>=0;i--)
         {
-            if(citations[i]<n) n--;
-            else res = n;
+            if(citations[i]<n) {
+                n--;
+            } else {
+                res = n;
+            }
         }
         return res;
     }

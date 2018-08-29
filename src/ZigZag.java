@@ -102,27 +102,39 @@ public class ZigZag {
      public static List<List<Integer>> fourSum(int[] nums, int target) {
          List<List<Integer>> l = new ArrayList<>();
          int len = nums.length;
-         if (len < 4) return l;
+         if (len < 4) {
+             return l;
+         }
          Arrays.sort(nums);
          int a = 0, b, c, d, sum;
          for (; a < len - 3; a++) {
-             if (a > 0 && nums[a] == nums[a - 1]) continue;
+             if (a > 0 && nums[a] == nums[a - 1]) {
+                 continue;
+             }
              b = a + 1;
              for (; b < len - 2; b++) {
-                 if (b > a + 1 && nums[b] == nums[b - 1]) continue;
+                 if (b > a + 1 && nums[b] == nums[b - 1]) {
+                     continue;
+                 }
                  c = b + 1;
                  d = len - 1;
                  while (c < d) {
                      sum = nums[a] + nums[b] + nums[c] + nums[d];
                      if (sum == target) {
                          l.add(Arrays.asList(nums[a], nums[b], nums[c], nums[d]));
-                         while (c < d && nums[c] == nums[c + 1]) c++;
+                         while (c < d && nums[c] == nums[c + 1]) {
+                             c++;
+                         }
                          c++;
                      } else if (sum < target) {
-                         while (c < d && nums[c] == nums[c + 1]) c++;
+                         while (c < d && nums[c] == nums[c + 1]) {
+                             c++;
+                         }
                          c++;
                      } else {
-                         while (c < d && nums[d] == nums[d - 1]) d--;
+                         while (c < d && nums[d] == nums[d - 1]) {
+                             d--;
+                         }
                          d--;
                      }
                  }
@@ -134,18 +146,26 @@ public class ZigZag {
 
      public static String addBinary(String a, String b) {
          int m = 0, n = 0;
-         if (a.equals("") || b.equals("")) return a + b;
-         if (a.equals("0")) return b;
-         if (b.equals("0")) return a;
+         if (a.equals("") || b.equals("")) {
+             return a + b;
+         }
+         if (a.equals("0")) {
+             return b;
+         }
+         if (b.equals("0")) {
+             return a;
+         }
          int len1 = a.length();
          int len2 = b.length();
          for (int i = 0; i < len1; i++) {
-             if (a.charAt(len1 - 1 - i) == '1')
+             if (a.charAt(len1 - 1 - i) == '1') {
                  m += (int) Math.pow(2, i);
+             }
          }
          for (int i = 0; i < len2; i++) {
-             if (b.charAt(len2 - 1 - i) == '1')
+             if (b.charAt(len2 - 1 - i) == '1') {
                  n += (int) Math.pow(2, i);
+             }
          }
          int k = m + n, j;
          String s = "";
@@ -169,20 +189,28 @@ public class ZigZag {
              return null;
          }
          for (int i = 0; i < nums.length - 2; i++) {
-             if (i > 0 && nums[i] == nums[i - 1]) continue;  // ==if(i==0||i>0&&nums[i]!=nums[i-1])
+             if (i > 0 && nums[i] == nums[i - 1]) {
+                 continue;  // ==if(i==0||i>0&&nums[i]!=nums[i-1])
+             }
              int j = i + 1, k = nums.length - 1;
              int sum = 0 - nums[i];
              while (j < k) {
                  if (nums[j] + nums[k] == sum) {
                      l.add(Arrays.asList(nums[i], nums[j], nums[k]));
-                     while (j < k && nums[j] == nums[j + 1]) j++;
+                     while (j < k && nums[j] == nums[j + 1]) {
+                         j++;
+                     }
                      j++;
 
                  } else if (nums[j] + nums[k] < sum) {
-                     while (j < k && nums[j] == nums[j + 1]) j++;
+                     while (j < k && nums[j] == nums[j + 1]) {
+                         j++;
+                     }
                      j++;
                  } else {
-                     while (j < k && nums[k] == nums[k - 1]) k--;
+                     while (j < k && nums[k] == nums[k - 1]) {
+                         k--;
+                     }
                      k--;
                  }
              }
@@ -193,7 +221,9 @@ public class ZigZag {
 
 
      public static int mySqrt(int x) {
-         if (x <= 0) return 0;
+         if (x <= 0) {
+             return 0;
+         }
          int digit = (int) Math.log10(x) + 1;
          int d = (int) Math.pow(10, (digit + 1) / 2 - 1);
          while (Math.pow(d, 2) < x) {
@@ -220,13 +250,19 @@ public class ZigZag {
                      stack.push('[');
                      break;
                  case ')':
-                     if (stack.size() == 0 || stack.pop() != '(') return false;
+                     if (stack.size() == 0 || stack.pop() != '(') {
+                         return false;
+                     }
                      break;
                  case '}':
-                     if (stack.size() == 0 || stack.pop() != '{') return false;
+                     if (stack.size() == 0 || stack.pop() != '{') {
+                         return false;
+                     }
                      break;
                  case ']':
-                     if (stack.size() == 0 || stack.pop() != '[') return false;
+                     if (stack.size() == 0 || stack.pop() != '[') {
+                         return false;
+                     }
                      break;
              }
          }
@@ -237,7 +273,9 @@ public class ZigZag {
 //         List<Integer> l=new ArrayList<>();
          int[] a = new int[32];
          int res, dig;
-         if (n == 0) return "0";
+         if (n == 0) {
+             return "0";
+         }
          dig = (int) Math.log10(n) + 1;
          for (int i = 0; i < dig; i++) {
              while (n > 0) {
@@ -269,28 +307,51 @@ public class ZigZag {
          int len=s.length();
 //        if(len==1) return (int)s.charAt(0)>=0&&(int)s.charAt(0)<=9;
 //        if(len==2)
-         if(s.isEmpty())return false;
-         if(s.equals("0"))return true;
-         if(s.equals("."))return false;
+         if(s.isEmpty()) {
+             return false;
+         }
+         if(s.equals("0")) {
+             return true;
+         }
+         if(s.equals(".")) {
+             return false;
+         }
          if (len<3){
-             if(s.charAt(0)=='0')return false;
+             if(s.charAt(0)=='0') {
+                 return false;
+             }
              for(int i=0;i<len;i++){
-                 if(s.charAt(0)=='.') continue;
-                 if(!((int)s.charAt(i)>=48&&(int)s.charAt(i)<=57)) return false;
+                 if(s.charAt(0)=='.') {
+                     continue;
+                 }
+                 if(!((int)s.charAt(i)>=48&&(int)s.charAt(i)<=57)) {
+                     return false;
+                 }
              }
              return true;
          }
 
-         if((int)s.charAt(len-1)==46) return false;
-         if((int)s.charAt(0)==101||(int)s.charAt(len-1)==101) return false;
-         if(s.indexOf(",",s.indexOf("."))>-1) return false;
-         if(s.indexOf("e",s.indexOf("e"))>-1) return false;
+         if((int)s.charAt(len-1)==46) {
+             return false;
+         }
+         if((int)s.charAt(0)==101||(int)s.charAt(len-1)==101) {
+             return false;
+         }
+         if(s.indexOf(",",s.indexOf("."))>-1) {
+             return false;
+         }
+         if(s.indexOf("e",s.indexOf("e"))>-1) {
+             return false;
+         }
          if(s.indexOf("e")>-1) {
-             if (s.indexOf(".") > s.indexOf("e")) return false;
+             if (s.indexOf(".") > s.indexOf("e")) {
+                 return false;
+             }
          }
          for(int i=0;i<len;i++){
-             if(((int)s.charAt(i)>=48&&(int)s.charAt(i)<=57)||(int)s.charAt(i)==46||(int)s.charAt(i)==101)
+             if(((int)s.charAt(i)>=48&&(int)s.charAt(i)<=57)||(int)s.charAt(i)==46||(int)s.charAt(i)==101) {
                  i++;
+             }
              return false;
          }
          return true;
@@ -299,15 +360,21 @@ public class ZigZag {
      public static int removeDuplicates(int[] nums) {
          Arrays.sort(nums);
          int dig=nums.length;
-         if(dig<=1)  return dig ;
+         if(dig<=1) {
+             return dig ;
+         }
          for(int i=0;i<dig;i++)
          {
              while(nums[i]==nums[i+1]){
                  dig--;
                  i++;
-                 if(i==nums.length-2) break;
+                 if(i==nums.length-2) {
+                     break;
+                 }
              }
-             if(i==nums.length-2) break;
+             if(i==nums.length-2) {
+                 break;
+             }
          }
          return dig;
      }
@@ -320,9 +387,15 @@ public class ZigZag {
              HashSet cube=new HashSet();
              for(int j=0;j<9;j++)
              {
-                 if(board[i][j]!='.'&&!row.add(board[i][j])) return false;
-                 if(board[j][i]!='.'&&!col.add(board[j][i])) return false;
-                 if(board[i/3*3][j]!='.'&&!cube.add(board[i/3*3][j])) return false;
+                 if(board[i][j]!='.'&&!row.add(board[i][j])) {
+                     return false;
+                 }
+                 if(board[j][i]!='.'&&!col.add(board[j][i])) {
+                     return false;
+                 }
+                 if(board[i/3*3][j]!='.'&&!cube.add(board[i/3*3][j])) {
+                     return false;
+                 }
              }
          }
          return true;
@@ -351,13 +424,16 @@ public class ZigZag {
             {
                 switch (s.charAt(i)){
                     case '(':
-                        if(stack.size()==0)
-                        stack.push('(');
+                        if(stack.size()==0) {
+                            stack.push('(');
+                        }
                         break;
                     case ')':
                         if(stack.size()!=0&&stack.pop()=='(') {
                             count+=2;
-                            if(max<count) max=count;
+                            if(max<count) {
+                                max=count;
+                            }
                         }else {
                             count=0;
                         }

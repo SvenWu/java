@@ -8,16 +8,22 @@ import java.util.Arrays;
 /**
  * Created by wth on 2017/5/16.
  */
+@SuppressWarnings("ALL")
 public class InversePairs {
     public  static int inversePairs(int[] arr){
-        if(arr.length == 0) return 0;
+        if(arr.length == 0) {
+            return 0;
+        }
         int [] copy = Arrays.copyOf(arr,arr.length);
         int count = MergeSort(arr,copy,0,arr.length-1);
         return count;
     }
 
-    private static int MergeSort(int[] arr,int[] copy,int low,int high) {
-        if(low >= high) return 0;
+    @SuppressWarnings("AlibabaLowerCamelCaseVariableNaming")
+    private static int MergeSort(int[] arr, int[] copy, int low, int high) {
+        if(low >= high) {
+            return 0;
+        }
         int mid = low + (high-low)/2;
         int left = MergeSort(arr,copy,low,mid);
         int right = MergeSort(arr,copy,mid+1,high);

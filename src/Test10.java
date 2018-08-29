@@ -35,8 +35,9 @@ public class Test10 {
     }
     public static ListNode remove(ListNode head, int n)
     {
-        if(head == null)
+        if(head == null) {
             return null;
+        }
         ListNode p = head, q = head;
         for(int i = 0; i < n; i++)
         {

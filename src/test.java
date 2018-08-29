@@ -12,11 +12,16 @@ public class test {
         int res = 0;
         for(char c1: c)
         {
-           if(map.containsKey(c1)) map.put(c1,map.get(c1)+1);
-           else map.put(c1,1);
+           if(map.containsKey(c1)) {
+               map.put(c1,map.get(c1)+1);
+           } else {
+               map.put(c1,1);
+           }
         }
         for(Integer count : map.values()){
-            if(count%2 != 0) return false;
+            if(count%2 != 0) {
+                return false;
+            }
         }
         return true;
     }

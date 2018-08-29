@@ -46,7 +46,9 @@ public class Template {
     private void backtrack1(List<List<Integer>> list, List<Integer> tempList, int [] nums, int start){
         list.add(new ArrayList<>(tempList));
         for(int i = start; i < nums.length; i++){
-            if(i > start && nums[i] == nums[i-1]) continue; // skip duplicates
+            if(i > start && nums[i] == nums[i-1]) {
+                continue; // skip duplicates
+            }
             tempList.add(nums[i]);
             backtrack1(list, tempList, nums, i + 1);
             tempList.remove(tempList.size() - 1);
@@ -72,7 +74,9 @@ public class Template {
             list.add(new ArrayList<>(tempList));
         } else{
             for(int i = 0; i < nums.length; i++){
-                if(tempList.contains(nums[i])) continue; // element already exists, skip
+                if(tempList.contains(nums[i])) {
+                    continue; // element already exists, skip
+                }
                 tempList.add(nums[i]);
                 backtrack(list, tempList, nums);
                 tempList.remove(tempList.size() - 1);
@@ -99,7 +103,9 @@ public class Template {
             list.add(new ArrayList<>(tempList));
         } else{
             for(int i = 0; i < nums.length; i++){
-                if(used[i] || i > 0 && nums[i] == nums[i-1] && !used[i - 1]) continue;
+                if(used[i] || i > 0 && nums[i] == nums[i-1] && !used[i - 1]) {
+                    continue;
+                }
                 used[i] = true;
                 tempList.add(nums[i]);
                 backtrack(list, tempList, nums, used);
@@ -125,9 +131,11 @@ public class Template {
     }
 
     private void backtrack(List<List<Integer>> list, List<Integer> tempList, int [] nums, int remain, int start){
-        if(remain < 0) return;
-        else if(remain == 0) list.add(new ArrayList<>(tempList));
-        else{
+        if(remain < 0) {
+            return;
+        } else if(remain == 0) {
+            list.add(new ArrayList<>(tempList));
+        } else{
             for(int i = start; i < nums.length; i++){
                 tempList.add(nums[i]);
                 backtrack(list, tempList, nums, remain - nums[i], i); // not i + 1 because we can reuse same elements
@@ -153,11 +161,15 @@ public class Template {
     }
 
     private void backtrack2(List<List<Integer>> list, List<Integer> tempList, int [] nums, int remain, int start){
-        if(remain < 0) return;
-        else if(remain == 0) list.add(new ArrayList<>(tempList));
-        else{
+        if(remain < 0) {
+            return;
+        } else if(remain == 0) {
+            list.add(new ArrayList<>(tempList));
+        } else{
             for(int i = start; i < nums.length; i++){
-                if(i > start && nums[i] == nums[i-1]) continue; // skip duplicates
+                if(i > start && nums[i] == nums[i-1]) {
+                    continue; // skip duplicates
+                }
                 tempList.add(nums[i]);
                 backtrack2(list, tempList, nums, remain - nums[i], i + 1);
                 tempList.remove(tempList.size() - 1);
@@ -180,9 +192,9 @@ public class Template {
     }
 
     public void backtrack(List<List<String>> list, List<String> tempList, String s, int start){
-        if(start == s.length())
+        if(start == s.length()) {
             list.add(new ArrayList<>(tempList));
-        else{
+        } else{
             for(int i = start; i < s.length(); i++){
                 if(isPalindrome(s, start, i)){
                     tempList.add(s.substring(start, i + 1));
@@ -194,8 +206,11 @@ public class Template {
     }
 
     public boolean isPalindrome(String s, int low, int high){
-        while(low < high)
-            if(s.charAt(low++) != s.charAt(high--)) return false;
+        while(low < high) {
+            if(s.charAt(low++) != s.charAt(high--)) {
+                return false;
+            }
+        }
         return true;
     }
 }

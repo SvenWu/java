@@ -1,3 +1,9 @@
+import java.text.MessageFormat;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Stream;
+
 /**
  * Created by wth on 2016/5/11.
  */
@@ -25,5 +31,21 @@ public class Test2 {
             }
             System.out.println();
         }
+
+        Map<Integer,Integer> map = new HashMap<>();
+        map.put(1,1);
+        System.out.println(map.get(2));
+
+        String s = "select {0} from {1}  where {0}  ?";
+        System.out.println(new MessageFormat(s).format(new String[]{"name","haha"}));
+
+        int a = 123;
+        System.out.println(Integer.toBinaryString(a));
+
+        String[] arr = new String[]{"a", "b", "c"};
+        Stream<String> streamOfArrayFull = Arrays.stream(arr);
+        Stream<String> streamOfArrayPart = Arrays.stream(arr, 1, 3);
+
+        System.out.println(streamOfArrayFull);
     }
 }

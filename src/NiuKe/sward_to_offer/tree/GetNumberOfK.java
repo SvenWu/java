@@ -5,14 +5,18 @@ package NiuKe.sward_to_offer.tree;
  */
 public class GetNumberOfK {
     public int getNumberOfK(int[] array, int k){
-        if(array.length == 0) return 0;
+        if(array.length == 0) {
+            return 0;
+        }
         int firstK = getFirstK(array,k,0,array.length-1);
         int lastK = getLastK(array,k,0,array.length-1);
 
         return (firstK != -1 && lastK != -1) ? lastK - firstK + 1 : 0 ;
     }
     int getFirstK(int[] arr,int k, int low, int high){
-        if(low > high) return -1;
+        if(low > high) {
+            return -1;
+        }
         int mid = low + (high-low)/2;
         if(arr[mid] == k){
             if(mid == 0 || arr[mid-1] != k){
@@ -29,7 +33,9 @@ public class GetNumberOfK {
     }
 
     int getLastK(int[] arr,int k, int low, int high){
-        if(low > high) return -1;
+        if(low > high) {
+            return -1;
+        }
         int mid = low + (high-low)/2;
         if(arr[mid] == k){
             if(mid == arr.length-1 || arr[mid+1] != k){

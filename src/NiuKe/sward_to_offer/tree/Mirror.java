@@ -6,7 +6,9 @@ package NiuKe.sward_to_offer.tree;
  */
 public class Mirror {
     public void Mirror(TreeNode root) {
-        if(root == null) return;
+        if(root == null) {
+            return;
+        }
         TreeNode temp = root.left;
         root.left = root.right;
         root.right = temp;

@@ -48,8 +48,12 @@ public class hasPath {
 //        }
 
 
-        if(rows == 0 ^ str.length == 0) return false;
-        if(rows == 0 && str.length == 0) return true;
+        if(rows == 0 ^ str.length == 0) {
+            return false;
+        }
+        if(rows == 0 && str.length == 0) {
+            return true;
+        }
         flag = new boolean[rows][cols];
         char[][] path = new char[rows][cols];
             for (int i = 0; i < rows; i++) {
@@ -72,7 +76,9 @@ public class hasPath {
             return;
         }
         if(row < 0 || row >= path.length || col < 0 || col >= path[0].length
-                || flag[row][col] || path[row][col] != str[pos]) return;
+                || flag[row][col] || path[row][col] != str[pos]) {
+            return;
+        }
         int[][] dirs = new int[][]{{1,0},{0,1},{-1,0},{0,-1}};
         flag[row][col] = true;
         for (int[] a : dirs) {

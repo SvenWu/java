@@ -23,8 +23,11 @@ public class Solution {
         xor &= -xor;    //精华！！能得到右边第一个不同的位数
         for(int i:nums)
         {
-            if((i & xor) ==0) res[0]^=i;
-            else res[1] ^= i;
+            if((i & xor) ==0) {
+                res[0]^=i;
+            } else {
+                res[1] ^= i;
+            }
         }
         return res;
     }
@@ -58,7 +61,9 @@ public class Solution {
         for(int i=0;i<32;i++)
         {
             res |= (n>>i)&1;
-            if(i==31) break;
+            if(i==31) {
+                break;
+            }
             res <<= 1;
         }
         return res;
@@ -71,11 +76,16 @@ public class Solution {
         HashMap<Integer, Integer> map = new HashMap<>();
         int len = nums.length;
         for (int i = 0; i < len; i++) {
-            if (map.containsKey(nums[i])) map.put(nums[i],map.get(nums[i])+1);
-            else map.put(nums[i], 1);
+            if (map.containsKey(nums[i])) {
+                map.put(nums[i],map.get(nums[i])+1);
+            } else {
+                map.put(nums[i], 1);
+            }
         }
         for (int i = 0; i < 2 / len; i++) {
-            if (map.get(nums[i]) > len / 2) return nums[i];
+            if (map.get(nums[i]) > len / 2) {
+                return nums[i];
+            }
         }
         return 0;
     }
@@ -92,7 +102,9 @@ public class Solution {
             List<Integer> list = new ArrayList<>();
             for(int j=0;j<len;j++)
             {
-                if(((i>>j)&1)==1)  list.add(nums[j]);
+                if(((i>>j)&1)==1) {
+                    list.add(nums[j]);
+                }
             }
             collection.add(list);
         }

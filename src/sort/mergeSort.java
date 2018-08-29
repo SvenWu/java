@@ -6,7 +6,9 @@ package sort;
 public class mergeSort {
     void sort(int[] nums, int low, int high)
     {
-        if (low >= high) return;
+        if (low >= high) {
+            return;
+        }
         int mid = low + (high - low) / 2;
         sort(nums,low,mid);
         sort(nums,mid+1,high);
@@ -19,8 +21,11 @@ public class mergeSort {
         int  tmp = low;
         for(; i<=mid && j<=high ; k++)
         {
-            if(nums[i] < nums[j])  temp[k] = nums[i++];
-            else temp[k] = nums[j++];
+            if(nums[i] < nums[j]) {
+                temp[k] = nums[i++];
+            } else {
+                temp[k] = nums[j++];
+            }
         }
         while(i<=mid)
         {
@@ -48,9 +53,13 @@ public class mergeSort {
     int partition (int[] nums,int low, int high){
         int pivotkey = nums[low];
         while(low<high) {
-            while (low<high && nums[high] > pivotkey) high--;
+            while (low<high && nums[high] > pivotkey) {
+                high--;
+            }
             nums[low] = nums[high];
-            while (low<high && nums[low] < pivotkey) low++;
+            while (low<high && nums[low] < pivotkey) {
+                low++;
+            }
             nums[high] = nums[low];
         }
         nums[low] = pivotkey;

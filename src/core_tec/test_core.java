@@ -8,7 +8,9 @@ import java.util.*;
 public class test_core implements Cloneable {
     public static void main(String[] args) {
         Object a = new Object();
-        if(a instanceof Objects) System.out.println("true");
+        if(a instanceof Objects) {
+            System.out.println("true");
+        }
         test_core t = new test_core();
         test_core b;
         try {

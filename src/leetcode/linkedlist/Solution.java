@@ -39,8 +39,12 @@ public class Solution {
      * 21. Merge Two Sorted Lists
      */
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        if (l1 == null) return l2;
-        if (l2 == null) return l1;
+        if (l1 == null) {
+            return l2;
+        }
+        if (l2 == null) {
+            return l1;
+        }
         ListNode merge;
         if (l1.val >= l2.val) {
             merge = l2;
@@ -58,8 +62,9 @@ public class Solution {
      */
     public ListNode swapPairs(ListNode head) {
         ListNode temp;
-        if (head == null || head.next == null) return head;
-        else {
+        if (head == null || head.next == null) {
+            return head;
+        } else {
             temp = head;
             head = head.next;
             head.next = temp;
@@ -89,12 +94,15 @@ public class Solution {
      * 141. Linked List Cycle
      */
     public boolean hasCycle(ListNode head) {
-        if (head == null) return false;
+        if (head == null) {
+            return false;
+        }
         ListNode p1 = head;
         ListNode p2 = head.next;
         while (p2 != null && p2.next != null) {
-            if (p2 == p1) return true;
-            else {
+            if (p2 == p1) {
+                return true;
+            } else {
                 p2 = p2.next.next;
                 p1 = p1.next;
             }
@@ -123,19 +131,29 @@ public class Solution {
 //        return null;
 //    }    时间超时；
         ListNode a = headA, b = headB;
-        if (headA == null || headB == null) return null;
+        if (headA == null || headB == null) {
+            return null;
+        }
         while (headA != headB) {
-            if (headA.next != null) headA = headA.next;
-            else headA.next = b;
-            if (headB.next != null) headB = headB.next;
-            else headB.next = a;
+            if (headA.next != null) {
+                headA = headA.next;
+            } else {
+                headA.next = b;
+            }
+            if (headB.next != null) {
+                headB = headB.next;
+            } else {
+                headB.next = a;
+            }
         }
         return headA;
     }
 
 
     public static boolean isPalindrome(ListNode head) {
-        if(head == null)  return true;
+        if(head == null) {
+            return true;
+        }
         ListNode p = head;
         ListNode copy = new ListNode(head.val);
         ListNode dummy = copy;
@@ -155,7 +173,9 @@ public class Solution {
         }
         while(copy != null)
         {
-            if(copy.val != newhead.val) return false;
+            if(copy.val != newhead.val) {
+                return false;
+            }
             copy = copy.next;
             newhead = newhead.next;
         }
@@ -167,8 +187,12 @@ public class Solution {
      * 2. Add Two Numbers
      * */
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        if(l1 == null) return l2;
-        if(l2 == null) return l1;
+        if(l1 == null) {
+            return l2;
+        }
+        if(l2 == null) {
+            return l1;
+        }
         ListNode p = new ListNode(0);
         ListNode dummy = p;
         int digit = 0;
@@ -188,7 +212,9 @@ public class Solution {
             digit = (sum+digit)/10;
             sum = 0;
         }
-        if(digit == 1) p.next = new ListNode(1);
+        if(digit == 1) {
+            p.next = new ListNode(1);
+        }
         return dummy.next;
     }
 
@@ -200,10 +226,14 @@ public class Solution {
             ListNode head = new ListNode(0);
             ListNode dummy = head;
             int min =0,indexMin = 0;
-            if(k == 0) return null;
+            if(k == 0) {
+                return null;
+            }
             for(int i =0;i<k;i++)
             {
-                if(lists[i] == null) lists[i] = new ListNode(Integer.MAX_VALUE);
+                if(lists[i] == null) {
+                    lists[i] = new ListNode(Integer.MAX_VALUE);
+                }
             }
             while(dummy.val != Integer.MAX_VALUE) {
                 min = lists[0].val;
@@ -218,7 +248,9 @@ public class Solution {
                 }
                 dummy = dummy.next;
                 lists[indexMin] = lists[indexMin].next;
-                if(lists[indexMin] == null) lists[indexMin] = new ListNode(Integer.MAX_VALUE);
+                if(lists[indexMin] == null) {
+                    lists[indexMin] = new ListNode(Integer.MAX_VALUE);
+                }
             }
 
             return head.next;
@@ -234,7 +266,9 @@ public class Solution {
         ListNode p1 = pone;
         ListNode psec = new ListNode(0);
         ListNode p2 = psec;
-        if(head == null) return null;
+        if(head == null) {
+            return null;
+        }
         while(head != null)
         {
             if(head.val < x){
@@ -246,7 +280,9 @@ public class Solution {
             }
             head = head.next;
         }
-        if(pone.next == null)  return psec.next;   //可以不要~
+        if(pone.next == null) {
+            return psec.next;   //可以不要~
+        }
         p2.next = null;
         p1.next = psec.next;
         return pone.next;

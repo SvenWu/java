@@ -17,7 +17,9 @@ public class Main {
          }
 
     public TreeNode buildTree(int[] inorder, int[] postorder) {
-        if(postorder.length == 0) return null;
+        if(postorder.length == 0) {
+            return null;
+        }
         TreeNode node = new TreeNode(postorder[postorder.length-1]);
         for(int i = 0; i < postorder.length; i++){
             if(inorder[i] == postorder[postorder.length-1]){

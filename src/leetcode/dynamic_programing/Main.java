@@ -18,10 +18,14 @@ public class Main {
             dp[i][i] = true;
             for (int j = i; j < len; j++){
                 if(s.charAt(i) == s.charAt(j)){
-                    if(j-1<i+1) dp[i][j] = true;
-                    else dp[i][j] = dp[i+1][j-1];
-                } else
+                    if(j-1<i+1) {
+                        dp[i][j] = true;
+                    } else {
+                        dp[i][j] = dp[i+1][j-1];
+                    }
+                } else {
                     dp[i][j] = false;
+                }
                 if(dp[i][j] && j+1-i > max){
                     max = j+1-i;
                     str = s.substring(i,j+1);
@@ -38,16 +42,23 @@ public class Main {
     public int numDecodings(String s) {
         int len = s.length();
         int []dp = new int[len];
-        if(len == 0 || s.charAt(0) == '0') return 0;
+        if(len == 0 || s.charAt(0) == '0') {
+            return 0;
+        }
         dp[0] = 1;
         for (int i = 1; i < len; i++) {
             if(s.charAt(i) != '0'){
-                if(10*(s.charAt(i-1)-'0')+s.charAt(i)-'0'<=26 && s.charAt(i-1)!=0)
+                if(10*(s.charAt(i-1)-'0')+s.charAt(i)-'0'<=26 && s.charAt(i-1)!=0) {
                     dp[i] = dp[i-1]+1;
-                else dp[i] = dp[i-1];
+                } else {
+                    dp[i] = dp[i-1];
+                }
             }else {
-                if(s.charAt(i-1) == '1' || s.charAt(i-1) == '2') dp[i] = dp[i-1];
-                else return 0;
+                if(s.charAt(i-1) == '1' || s.charAt(i-1) == '2') {
+                    dp[i] = dp[i-1];
+                } else {
+                    return 0;
+                }
             }
         }
         return dp[len-1];
@@ -62,8 +73,9 @@ public class Main {
         dp[0] = 1;
         for(int i = 1; i < s.length()+1; i++){
             for(int j = t.length(); j >= 1; j--){
-                if(s.charAt(i-1) == t.charAt(j-1))
+                if(s.charAt(i-1) == t.charAt(j-1)) {
                     dp[j] = dp[j-1] + dp[j];
+                }
             }
         }
         return dp[t.length()];
@@ -76,14 +88,20 @@ public class Main {
 
     public boolean isInterleave(String s1, String s2, String s3){
         int l = s1.length(), m = s2.length(), n = s3.length();
-        if(l+m != n) return false;
+        if(l+m != n) {
+            return false;
+        }
         boolean [][] dp = new boolean[l+1][m+1];
         dp[0][0] = true;
         for (int j = 1; j <= m; j++){
-            if(s2.charAt(j-1) == s3.charAt(j-1)) dp[0][j] = dp[0][j-1];
+            if(s2.charAt(j-1) == s3.charAt(j-1)) {
+                dp[0][j] = dp[0][j-1];
+            }
         }
         for (int i = 1; i <= l; i++) {
-            if(s1.charAt(i-1) == s3.charAt(i-1)) dp[i][0] = dp[i-1][0];
+            if(s1.charAt(i-1) == s3.charAt(i-1)) {
+                dp[i][0] = dp[i-1][0];
+            }
         }
         for (int i = 1; i <= l; i++) {
             for (int j = 1; j <= m; j++) {
@@ -93,12 +111,13 @@ public class Main {
                  || (dp[i][j-1] && s2.charAt(j-1) == s3.charAt(i+j-1));
                  * */
 
-                if(s1.charAt(i-1) == s3.charAt(i+j-1) && s2.charAt(j-1) != s3.charAt(i+j-1))
+                if(s1.charAt(i-1) == s3.charAt(i+j-1) && s2.charAt(j-1) != s3.charAt(i+j-1)) {
                     dp[i][j] = dp[i-1][j];
-                else if(s2.charAt(j-1) == s3.charAt(i+j-1) && s1.charAt(i-1) != s3.charAt(i+j-1))
+                } else if(s2.charAt(j-1) == s3.charAt(i+j-1) && s1.charAt(i-1) != s3.charAt(i+j-1)) {
                     dp[i][j] = dp[i][j-1];
-                else if(s1.charAt(i-1) == s3.charAt(i+j-1) && s2.charAt(j-1) == s3.charAt(i+j-1))
+                } else if(s1.charAt(i-1) == s3.charAt(i+j-1) && s2.charAt(j-1) == s3.charAt(i+j-1)) {
                     dp[i][j] = dp[i-1][j] || dp[i][j-1];
+                }
             }
         }
         return dp[l][m];

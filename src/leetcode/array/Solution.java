@@ -38,9 +38,14 @@ public class Solution {
         int mid;
         while (lo <= hi) {
             mid = (lo + hi) / 2;
-            if (nums[mid] == target) return mid;
-            if (nums[mid] < target) lo = mid + 1;
-            else hi = mid - 1;
+            if (nums[mid] == target) {
+                return mid;
+            }
+            if (nums[mid] < target) {
+                lo = mid + 1;
+            } else {
+                hi = mid - 1;
+            }
         }
         return lo;
     }
@@ -60,7 +65,9 @@ public class Solution {
                 cur.remove(cur.size() - 1);
             }
         }
-        if (target == 0) result.add(new ArrayList<Integer>(cur));   //为什么要实例化  cur
+        if (target == 0) {
+            result.add(new ArrayList<Integer>(cur));   //为什么要实例化  cur
+        }
     }
 
 
@@ -82,7 +89,9 @@ public class Solution {
         return result;
     }
     public void dfs2(List<List<Integer>> result, List<Integer> cur, int[] candidates, int target,int start){
-        if(target==0)   result.add(new ArrayList<Integer>(cur));
+        if(target==0) {
+            result.add(new ArrayList<Integer>(cur));
+        }
         if(target>0){
             for(int i=start;i<candidates.length;i++){
                 cur.add(candidates[i]);
@@ -97,7 +106,9 @@ public class Solution {
      * @param
      */
     public int trap(int[] height) {
-        if (height.length<=2)  return 0;
+        if (height.length<=2) {
+            return 0;
+        }
         int left=0;int right=height.length-1;
         int area=0;
         int maxleft=height[left],maxright=height[right];
@@ -201,7 +212,9 @@ public class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> l = new ArrayList<>();
         int row=0,col=0;
-        if(matrix.length==0)  return l;
+        if(matrix.length==0) {
+            return l;
+        }
         int rowEnd=matrix.length-1;
         int colEnd=matrix[0].length-1;
         while(col<=colEnd&&row<=rowEnd){
@@ -256,7 +269,9 @@ public class Solution {
         for(int i=0;i<nums.length; i++)
         {
             currentMax=Math.max(currentMax,nums[i]+i);
-            if(currentMax<i+1) return false;
+            if(currentMax<i+1) {
+                return false;
+            }
         }
         return true;
     }
@@ -273,7 +288,9 @@ public class Solution {
              Interval(int s, int e) { start = s; end = e; }
          }
     public List<Interval> merge(List<Interval> intervals) {
-        if(intervals.size()==0) return intervals;
+        if(intervals.size()==0) {
+            return intervals;
+        }
         Collections.sort(intervals, new Comparator<Interval>() {
             @Override
             public int compare(Interval o1, Interval o2) {
@@ -345,9 +362,13 @@ public class Solution {
         int rowEnd = n-1;
         int colEnd = n-1;
         int [][] res = new int[n][n];
-        if(n==0) return res;
+        if(n==0) {
+            return res;
+        }
         res[0][0]=1;
-        if(n==1) return res;
+        if(n==1) {
+            return res;
+        }
         int count = 1;
         while(col<=colEnd&&row<=rowEnd)
         {
@@ -486,8 +507,11 @@ public class Solution {
         char [] c = s.toCharArray();
         for(char c1 : c)
         {
-            if(map.containsKey(c1)) map.put(c1,map.get(c1)+1);
-            else map.put(c1,1);
+            if(map.containsKey(c1)) {
+                map.put(c1,map.get(c1)+1);
+            } else {
+                map.put(c1,1);
+            }
         }
         List<Map.Entry<Character,Integer>> list = new ArrayList<>(map.entrySet());
         Collections.sort(list,new Comparator<Map.Entry<Character,Integer>>(){
@@ -531,8 +555,11 @@ public class Solution {
         int len = nums.length;
         for(Integer num : nums)
         {
-            if(map.containsKey(num))  map.put(num,map.get(num)+1);
-            else map.put(num,1);
+            if(map.containsKey(num)) {
+                map.put(num,map.get(num)+1);
+            } else {
+                map.put(num,1);
+            }
         }
         List<Map.Entry<Integer,Integer>> list = new ArrayList<>(map.entrySet());
         Collections.sort(list,new Comparator<Map.Entry<Integer,Integer>>(){
@@ -556,7 +583,9 @@ public class Solution {
         ArrayDeque<String> stack = new ArrayDeque<>();
         String op = "+-*/";
         int res = 0;
-        if(tokens.length ==1 )return Integer.parseInt(tokens[0]);
+        if(tokens.length ==1 ) {
+            return Integer.parseInt(tokens[0]);
+        }
         for(String t : tokens)
         {
             if(!op.contains(t))  {stack.push(t);}
@@ -574,10 +603,18 @@ public class Solution {
         return res;
     }
     int eval(int a,int b,String s){
-        if(s.equals("+")) return a + b;
-        if(s.equals("-")) return a - b;
-        if(s.equals("*")) return a * b;
-        if(s.equals("/")) return a / b;
+        if(s.equals("+")) {
+            return a + b;
+        }
+        if(s.equals("-")) {
+            return a - b;
+        }
+        if(s.equals("*")) {
+            return a * b;
+        }
+        if(s.equals("/")) {
+            return a / b;
+        }
 //        PriorityQueue<int[]> pq =new PriorityQueue<>(new Comparator<int[]>(){
 //            @Override
 //            public int compare(int[] o1, int[] o2) {
@@ -591,12 +628,18 @@ public class Solution {
     public List<int[]> kSmallestPairs(int[] nums1, int[] nums2, int k) {
         PriorityQueue<int[]> que = new PriorityQueue<>();
         List<int[]> res = new ArrayList<>();
-        if(nums1.length==0 || nums2.length==0 || k==0) return res;
-        for(int i=0; i<nums1.length && i<k; i++) que.offer(new int[]{nums1[i], nums2[0], 0});
+        if(nums1.length==0 || nums2.length==0 || k==0) {
+            return res;
+        }
+        for(int i=0; i<nums1.length && i<k; i++) {
+            que.offer(new int[]{nums1[i], nums2[0], 0});
+        }
         while(k-- > 0 && !que.isEmpty()){
             int[] cur = que.poll();
             res.add(new int[]{cur[0], cur[1]});
-            if(cur[2] == nums2.length-1) continue;
+            if(cur[2] == nums2.length-1) {
+                continue;
+            }
             que.offer(new int[]{cur[0],nums2[cur[2]+1], cur[2]+1});
         }
         return res;
@@ -631,15 +674,17 @@ public class Solution {
      * */
     public int firstMissingPositive(int[] A) {
         int n=A.length;
-        if(n==0)
+        if(n==0) {
             return 1;
+        }
         int k=partition(A)+1;
         int temp=0;
         int first_missing_Index=k;
         for(int i=0;i<k;i++){
             temp=Math.abs(A[i]);
-            if(temp<=k)
+            if(temp<=k) {
                 A[temp-1]=(A[temp-1]<0)?A[temp-1]:-A[temp-1];
+            }
         }
         for(int i=0;i<k;i++){
             if(A[i]>0){
@@ -680,7 +725,9 @@ public class Solution {
 
     public int threeSumClosest(int[] nums, int target) {
         int len = nums.length;
-        if(len <= 2) return 0;
+        if(len <= 2) {
+            return 0;
+        }
         Arrays.sort(nums);
         int sum = nums[0] + nums[1] + nums[2];
         for (int i = 0; i < len - 2; i ++) {
@@ -690,10 +737,15 @@ public class Solution {
                 int sum2 = nums[i] + nums[j] + nums[k];
                 if(Math.abs(target - sum) > Math.abs(target - sum2)) {
                     sum = sum2;
-                    if(sum == target) return target;
+                    if(sum == target) {
+                        return target;
+                    }
                 }
-                if(sum2 > target) k--;
-                else j++;
+                if(sum2 > target) {
+                    k--;
+                } else {
+                    j++;
+                }
             }
         }
         return sum;

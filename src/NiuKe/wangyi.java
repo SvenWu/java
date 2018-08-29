@@ -11,8 +11,12 @@ public class wangyi {
         int n = sc.nextInt();
         int [] tx = new int [n];
         int [] ty = new int [n];
-        for(int i=0; i<n; i++) tx[i] = sc.nextInt();
-        for(int i=0; i<n; i++) ty[i] = sc.nextInt();
+        for(int i=0; i<n; i++) {
+            tx[i] = sc.nextInt();
+        }
+        for(int i=0; i<n; i++) {
+            ty[i] = sc.nextInt();
+        }
         int gx = sc.nextInt();
         int gy = sc.nextInt();
         int walkTime = sc.nextInt();

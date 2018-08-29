@@ -25,9 +25,13 @@ public class Randomized_select {
     int partition(int[] arr, int low, int high){
         int pivotKey = arr[low];
         while(low < high){
-            while (low < high && pivotKey <= arr[high]) high--;
+            while (low < high && pivotKey <= arr[high]) {
+                high--;
+            }
             arr[low] = arr[high];
-            while (low < high && pivotKey >= arr[low]) low++;
+            while (low < high && pivotKey >= arr[low]) {
+                low++;
+            }
             arr[high] = arr[low];
         }
         arr[low] = pivotKey;

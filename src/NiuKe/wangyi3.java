@@ -20,12 +20,16 @@ public class wangyi3 {
         int sum = 0;
         for(int i =0;i<len;i++)
         {
-            if(s.charAt(i) == c) count++;
+            if(s.charAt(i) == c) {
+                count++;
+            }
         }
         int count2 = count;
         for(int i=0;i<len;i++)
         {
-            if(count == 0) break;
+            if(count == 0) {
+                break;
+            }
             if(s.charAt(i) == c)
             {
                 sum += i+count-count2;

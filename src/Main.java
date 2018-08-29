@@ -23,20 +23,28 @@ public class Main {
         String op = "+*-";
         int res = 0;
         if(str.length ==1 ){
-            if(op.contains(str[0])) return -1;
+            if(op.contains(str[0])) {
+                return -1;
+            }
             return Integer.parseInt(str[0]);
         }
         for(String t : str)
         {
-            if(!op.contains(t))  {
+                if(!op.contains(t))  {
                 stack.push(t);
-                if(stack.size()>16) return -2;
+                if(stack.size()>16) {
+                    return -2;
+                }
             }
             else {
                 int  op1;//第一个运算数
                 int  op2;//第二个
-                if(!(t.equals("-")) && stack.size()<2) return -1;
-                if(t.equals("-") && stack.isEmpty()) return -1;
+                if(!(t.equals("-")) && stack.size()<2) {
+                    return -1;
+                }
+                if(t.equals("-") && stack.isEmpty()) {
+                    return -1;
+                }
                 //不考虑会超界
                 if(t.equals("-")){
                     op1 = Integer.parseInt(stack.pop());
@@ -52,8 +60,12 @@ public class Main {
         return Integer.parseInt(stack.pop());
     }
     static int eval(int a,int b,String s){
-        if(s.equals("+")) return a + b;
-        if(s.equals("*")) return a * b;
+        if(s.equals("+")) {
+            return a + b;
+        }
+        if(s.equals("*")) {
+            return a * b;
+        }
         return 0;
     }
     public int filter(String s, String pattern){
@@ -61,8 +73,12 @@ public class Main {
         int idx = 0;
         for (int i = 0; i < len; i++) {
             idx = i;
-            if(pattern.charAt(i) == '?' || pattern.charAt(i) == '*') break;
-            if(s.charAt(i) != pattern.charAt(i)) return 0;
+            if(pattern.charAt(i) == '?' || pattern.charAt(i) == '*') {
+                break;
+            }
+            if(s.charAt(i) != pattern.charAt(i)) {
+                return 0;
+            }
         }
         return 1;
     }

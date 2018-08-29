@@ -183,8 +183,9 @@ public class LeastSquareMethod {
             return null;
         }
         for (double[] x : a) {
-            if (x == null || x.length != a.length)
+            if (x == null || x.length != a.length) {
                 return null;
+            }
         }
 
         int len = a.length - 1;
@@ -199,11 +200,12 @@ public class LeastSquareMethod {
         double[] bb = new double[len];
         int posx = -1, posy = -1;
         for (int i = 0; i <= len; i++) {
-            for (int j = 0; j <= len; j++)
+            for (int j = 0; j <= len; j++) {
                 if (a[i][j] != 0.0d) {
                     posy = j;
                     break;
                 }
+            }
             if (posy != -1) {
                 posx = i;
                 break;
