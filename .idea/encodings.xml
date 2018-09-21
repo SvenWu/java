@@ -2,15 +2,15 @@
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/Jar/jython-2.7-b1.jar" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/Test5.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/Test6.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/Test7.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/Test8.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/ga/GA2.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/leetcode/array/Solution.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/leetcode/binarysearch/Solution.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/leetcode/hashtable/Solution.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/thread/SecondThread.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Test5.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Test6.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Test7.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Test8.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ga/GA2.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/leetcode/array/Solution.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/leetcode/binarysearch/Solution.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/leetcode/hashtable/Solution.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/thread/SecondThread.java" charset="UTF-8" />
     <file url="PROJECT" charset="GBK" />
   </component>
 </project>
