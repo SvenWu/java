@@ -1,5 +1,7 @@
 package sort;
 
+import java.util.Arrays;
+
 /**
  * Created by wth on 2017/3/29.
  */
@@ -66,7 +68,9 @@ public class mergeSort {
         return low;
     }
     public static void main(String[] args){
-        int [] num = new int[]{53,324,564,33,57,76,422,242,54,3};
+        //int [] num = new int[]{53,324,564,33,57,76,422,242,54,3};
+        int[] num = GenerateArr.generateArr(10,100);
+        System.out.println(Arrays.toString(num));
         new mergeSort().sort(num,0,num.length-1);
         for(int i : num)
         {
